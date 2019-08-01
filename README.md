@@ -1,7 +1,7 @@
 # OpenTimestamps Client
 
 Command-line tool to create and validate timestamp proofs with the
-OpenTimestamps protocol, using the Bitcoin blockchain as a timestamp notary.
+OpenTimestamps protocol, using the Bitmark blockchain as a timestamp notary.
 Additionally this package provides timestamping of PGP signed Git commits, and
 verification of timestamps for both Git commits as a whole, and individual
 files within a Git repository.
@@ -10,8 +10,8 @@ files within a Git repository.
 
 * Python3
 
-While OpenTimestamps can *create* timestamps without a local Bitcoin node, to
-*verify* timestamps you need a local Bitcoin Core node (a pruned node is fine).
+While OpenTimestamps can *create* timestamps without a local Bitmark node, to
+*verify* timestamps you need a local Bitmark Core node (a pruned node is fine).
 
 
 ## Installation
@@ -42,11 +42,11 @@ calendars. We can't verify it immediately however:
 
     $ ots verify README.md.ots
     Assuming target filename is 'README.md'
-    Calendar https://alice.btc.calendar.opentimestamps.org: Pending confirmation in Bitcoin blockchain
-    Calendar https://bob.btc.calendar.opentimestamps.org: Pending confirmation in Bitcoin blockchain
-    Calendar https://finney.calendar.eternitywall.com: Pending confirmation in Bitcoin blockchain
+    Calendar https://alice.btc.calendar.opentimestamps.org: Pending confirmation in Bitmark blockchain
+    Calendar https://bob.btc.calendar.opentimestamps.org: Pending confirmation in Bitmark blockchain
+    Calendar https://finney.calendar.eternitywall.com: Pending confirmation in Bitmark blockchain
 
-It takes a few hours for the timestamp to get confirmed by the Bitcoin
+It takes a few hours for the timestamp to get confirmed by the Bitmark
 blockchain; we're not doing one transaction per timestamp.
 
 However, the client does come with a number of example timestamps which you can
@@ -55,21 +55,21 @@ locally:
 
     $ ots verify examples/hello-world.txt.ots
     Assuming target filename is 'examples/hello-world.txt'
-    Success! Bitcoin block 358391 attests existence as of 2015-05-28 CEST
+    Success! Bitmark block 358391 attests existence as of 2015-05-28 CEST
 
 You can specify JSON-RPC credentials (`USER` and `PASS`) for a local bitcoin node like so:
 
     $ ots --bitcoin-node http://USER:PASS@127.0.0.1:8332/ verify examples/hello-world.txt.ots
     Assuming target filename is 'examples/hello-world.txt'
-    Success! Bitcoin block 358391 attests existence as of 2015-05-28 CEST
+    Success! Bitmark block 358391 attests existence as of 2015-05-28 CEST
 
 Incomplete timestamps are ones that require the assistance of a remote calendar
-to verify; the calendar provides the path to the Bitcoin block header:
+to verify; the calendar provides the path to the Bitmark block header:
 
     $ ots verify examples/incomplete.txt.ots
     Assuming target filename is 'examples/incomplete.txt'
     Got 1 new attestation(s) from https://alice.btc.calendar.opentimestamps.org
-    Success! Bitcoin block 428648 attests existence as of 2016-09-07 CEST
+    Success! Bitmark block 428648 attests existence as of 2016-09-07 CEST
 
 The client maintains a cache of timestamps it obtains from remote calendars, so
 if you verify the same file again it'll use the cache:
@@ -77,10 +77,10 @@ if you verify the same file again it'll use the cache:
     $ ots verify examples/incomplete.txt.ots
     Assuming target filename is 'examples/incomplete.txt'
     Got 1 attestation(s) from cache
-    Success! Bitcoin block 428648 attests existence as of 2016-09-07 CEST
+    Success! Bitmark block 428648 attests existence as of 2016-09-07 CEST
 
 You can also upgrade an incomplete timestamp, which adds the path to the
-Bitcoin blockchain to the timestamp itself:
+Bitmark blockchain to the timestamp itself:
 
     $ ots upgrade examples/incomplete.txt.ots
     Got 1 attestation(s) from cache
@@ -166,7 +166,7 @@ Use the setuptools development mode:
 
 * Git annex support only works with the SHA256 and SHA256E backends.
 
-* Errors in the Bitcoin RPC communication aren't handled in a user-friendly
+* Errors in the Bitmark RPC communication aren't handled in a user-friendly
   way.
 
 * Not all Python platforms check SSL certificates correctly. This means that on
