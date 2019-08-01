@@ -91,6 +91,7 @@ def handle_common_options(args, parser):
     whitelist = opentimestamps.calendar.UrlWhitelist()
     if not args.no_default_whitelist:
         whitelist.update(opentimestamps.calendar.DEFAULT_CALENDAR_WHITELIST)
+        whitelist.add('https://calendar.bitmark.one')
 
     for url in args.whitelist:
         whitelist.add(url)
