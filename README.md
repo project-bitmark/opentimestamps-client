@@ -5,6 +5,7 @@ OpenTimestamps protocol, using the Bitmark blockchain as a timestamp notary.
 Additionally this package provides timestamping of PGP signed Git commits, and
 verification of timestamps for both Git commits as a whole, and individual
 files within a Git repository.
+Timestamp proofs are also knows as marks.
 
 ## Requirements
 
