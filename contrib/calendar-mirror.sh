@@ -16,7 +16,8 @@
 
 cd $1
 
-(wget --no-parent -Nr https://alice.btc.calendar.opentimestamps.org/calendar/ ;
+(wget --no-parent -Nr https://calendar.bitmark.one/calendar/ ;
+ wget --no-parent -Nr https://alice.btc.calendar.opentimestamps.org/calendar/ ;
  wget --no-parent -Nr https://bob.btc.calendar.opentimestamps.org/calendar/ ;
  wget --no-parent -Nr https://finney.calendar.eternitywall.com/calendar/ ) 2> log
 

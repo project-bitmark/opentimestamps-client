@@ -183,6 +183,7 @@ def stamp_command(args):
 
     if not args.calendar_urls:
         # Neither calendar nor wallet specified; add defaults
+        args.calendar_urls.append('https://calendar.bitmark.one')
         args.calendar_urls.append('https://a.pool.opentimestamps.org')
         args.calendar_urls.append('https://b.pool.opentimestamps.org')
         args.calendar_urls.append('https://a.pool.eternitywall.com')
