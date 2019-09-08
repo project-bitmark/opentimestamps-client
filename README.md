@@ -1,11 +1,11 @@
-# OpenTimestamps Client
+# Open Timestamps Client
 
 Command-line tool to create and validate timestamp proofs with the
-OpenTimestamps protocol, using the Bitmark blockchain as a timestamp notary.
+OpenTimestamps protocol, using the Bitmark blockchain as the timestamp notary.
 Additionally this package provides timestamping of PGP signed Git commits, and
 verification of timestamps for both Git commits as a whole, and individual
 files within a Git repository.
-Timestamp proofs are also knows as marks.
+Timestamp proofs are also knows as Marks.
 
 ## Requirements
 
